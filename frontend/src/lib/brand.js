@@ -3,8 +3,8 @@ export const BRAND = {
     name: "SECTOR9",
     tagline: "Tactical CCTV Systems",
     region: "South Africa",
-    whatsappNumber: "+27820000000", // Update with real number
-    whatsappDisplay: "+27 82 000 0000",
+    whatsappNumber: "+27637574531",
+    whatsappDisplay: "+27 63 757 4531",
     email: "bothwell@consultant.com",
     serviceArea: "Johannesburg & Surrounds · Nationwide on quote",
     hours: "Mon–Sat · 07:00 – 19:00 SAST",
