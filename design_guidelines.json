@@ -1,0 +1,108 @@
+{
+  "theme": "Dark",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) + Tactical Minimalism",
+  "color_palette": {
+    "background": "#050505",
+    "surface": "#121212",
+    "surface_hover": "#1A1A1A",
+    "primary": "#FF3B30",
+    "primary_foreground": "#FFFFFF",
+    "border": "#262626",
+    "text_main": "#FFFFFF",
+    "text_muted": "#A1A1AA",
+    "warning": "#FFD60A",
+    "glass": "bg-black/60 backdrop-blur-2xl"
+  },
+  "typography": {
+    "headings": {
+      "font": "Cabinet Grotesk",
+      "fallback": "sans-serif",
+      "weights": ["800", "900"],
+      "classes": "font-black tracking-tight uppercase"
+    },
+    "body": {
+      "font": "IBM Plex Sans",
+      "fallback": "sans-serif",
+      "weights": ["400", "500"],
+      "classes": "text-zinc-300 leading-relaxed"
+    },
+    "technical": {
+      "font": "IBM Plex Mono",
+      "fallback": "monospace",
+      "weights": ["400", "600"],
+      "classes": "text-xs tracking-[0.2em] uppercase text-zinc-400"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Utilitarian density. The UI must feel like a precision instrument or control room. Sharp edges, strict grids, and optical clarity.",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "section_padding": "py-24 md:py-32",
+    "grid_system": "Bento Grid (Control Room style). gap-4 to gap-6. Direct children only.",
+    "border_radius": "rounded-none or max rounded-sm (2px) - NO large radii."
+  },
+  "components": {
+    "header": "Sticky header, z-50. bg-black/80 backdrop-blur-xl border-b border-zinc-900. Must include Logo, Nav links, and WhatsApp CTA.",
+    "buttons": {
+      "primary": "bg-red-600 text-white hover:bg-red-700 rounded-none px-6 py-3 font-medium uppercase tracking-wider text-sm transition-colors",
+      "secondary": "bg-transparent border border-zinc-700 text-white hover:border-red-600 hover:text-red-500 rounded-none px-6 py-3 font-medium uppercase tracking-wider text-sm transition-colors"
+    },
+    "cards": "bg-[#0A0A0A] border border-zinc-800 hover:border-zinc-700 transition-colors p-6 rounded-none relative overflow-hidden group.",
+    "forms": "Use Shadcn components. input/textarea: bg-transparent border border-zinc-800 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-none. Muted backgrounds for autofill."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.pexels.com/photos/17323801/pexels-photo-17323801.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Modern server room with blue illumination.",
+        "category": "hero_background"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1762953007649-8ea70115059a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwzfHxzZWN1cml0eSUyMGNhbWVyYSUyMG1vZGVybnxlbnwwfHx8fDE3NzgyNDM3NzJ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Two surveillance cameras on a pole.",
+        "category": "services_commercial"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1765121689322-6befc57dc8db?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGNhbWVyYSUyMG1vZGVybnxlbnwwfHx8fDE3NzgyNDM3NzJ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Security camera mounted on wall.",
+        "category": "services_residential"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1730967693281-c114d9930860?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwzfHxzbWFydCUyMGhvbWUlMjBzZWN1cml0eXxlbnwwfHx8fDE3NzgyNDM3ODh8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Close up of a camera on a table.",
+        "category": "services_smart_home"
+      }
+    ]
+  },
+  "content_strategy": {
+    "contact": {
+      "whatsapp_number": "+27 82 000 0000",
+      "email": "secure@cctvsa.co.za",
+      "address": "Service Area: Johannesburg & Surrounds (South Africa)"
+    },
+    "key_sections": [
+      "Hero (Value Prop + CTAs + Trust Badges)",
+      "Marquee (Stats: 24/7 Monitoring, PSIRA Certified, 99.9% Uptime, Rapid Response)",
+      "Services (Home, Commercial, Remote Viewing, Maintenance)",
+      "Process (Consult -> Install -> Secure)",
+      "Quote Form (Minimal fields: Name, Email, Phone, Service, Message)",
+      "FAQ"
+    ]
+  },
+  "interaction_and_motion": {
+    "hover_states": "High contrast shifts. Text colors change to white, borders change to red-600.",
+    "animations": "Subtle and mechanical. Use framer-motion for simple opacity fades. No bouncy animations.",
+    "accessibility": "Ensure all form fields have labels (can be floating or above) and data-testid attributes."
+  },
+  "instructions_to_main_agent": [
+    "1. Implement a strict DARK MODE ONLY design (modify tailwind.config.js and globals.css to enforce dark mode backgrounds natively: body { @apply bg-black text-white; }).",
+    "2. Do not use border-radius larger than 2px (rounded-sm or rounded-none). The UI must feel sharp, tactical, and precise.",
+    "3. Use Lucide-react for icons.",
+    "4. Add this to public/index.html head for Cabinet Grotesk: <link href='https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,400&display=swap' rel='stylesheet'>",
+    "5. Use Google Fonts for IBM Plex Sans and IBM Plex Mono.",
+    "6. Build the Services section as a tactical Bento grid (grid-cols-1 md:grid-cols-3 or 4) with 1px zinc-800 borders.",
+    "7. The Hero section must use the server room image as a background WITH a heavy bg-black/80 overlay so text is highly readable. Use grid backgrounds or noise textures for extra tactical feel.",
+    "8. Implement a Floating WhatsApp button (fixed bottom-right, z-50, green color is acceptable here or match brand).",
+    "9. All interactive elements MUST have data-testid attributes (e.g., data-testid='hero-quote-button').",
+    "10. Connect the Quote Form using the provided Resend backend structure (use standard secure form practices, include an anti-spam copy like 'Secure 256-bit encrypted submission' near the submit button)."
+  ]
+}
