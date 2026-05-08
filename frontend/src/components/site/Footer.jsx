@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, Clock, Shield, ArrowUpRight } from "lucide-react";
-import { BRAND, NAV_LINKS, buildWhatsAppUrl, buildMailto } from "@/lib/brand";
+import { BRAND, NAV_LINKS, buildWhatsAppUrl, buildMailto, openWhatsApp } from "@/lib/brand";
 
 export default function Footer() {
     return (
@@ -38,8 +38,9 @@ export default function Footer() {
                             </a>
                             <a
                                 href={buildWhatsAppUrl()}
+                                onClick={(e) => { e.preventDefault(); openWhatsApp(); }}
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center gap-2 border border-zinc-700 hover:border-red-500 text-white px-6 py-3 font-mono text-[11px] uppercase tracking-[0.25em] transition-colors"
                                 data-testid="footer-cta-whatsapp"
                             >
@@ -76,8 +77,9 @@ export default function Footer() {
                                 <Phone className="h-4 w-4 text-red-500 mt-0.5" />
                                 <a
                                     href={buildWhatsAppUrl()}
+                                    onClick={(e) => { e.preventDefault(); openWhatsApp(); }}
                                     target="_blank"
-                                    rel="noreferrer"
+                                    rel="noopener noreferrer"
                                     className="text-zinc-300 hover:text-white transition-colors"
                                     data-testid="footer-whatsapp"
                                 >

@@ -1,5 +1,5 @@
 import { ArrowRight, Phone, ShieldCheck, Radio, Wifi, Activity } from "lucide-react";
-import { BRAND, buildWhatsAppUrl } from "@/lib/brand";
+import { BRAND, buildWhatsAppUrl, openWhatsApp } from "@/lib/brand";
 
 const HERO_IMG =
     "https://images.pexels.com/photos/17323801/pexels-photo-17323801.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1080&w=1920";
@@ -62,8 +62,9 @@ export default function Hero() {
                             </a>
                             <a
                                 href={buildWhatsAppUrl()}
+                                onClick={(e) => { e.preventDefault(); openWhatsApp(); }}
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center gap-3 border border-zinc-700 hover:border-red-500 hover:text-red-400 text-white px-7 py-4 font-mono text-xs uppercase tracking-[0.25em] transition-colors"
                                 data-testid="hero-cta-whatsapp"
                             >

@@ -18,6 +18,20 @@ export const buildWhatsAppUrl = (msg = "") => {
     return `https://wa.me/${BRAND.whatsappNumber.replace(/\D/g, "")}?text=${text}`;
 };
 
+// Robust opener — bypasses iframe sandboxing that can swallow target="_blank".
+export const openWhatsApp = (msg = "") => {
+    const url = buildWhatsAppUrl(msg);
+    const win = window.open(url, "_blank", "noopener,noreferrer");
+    if (!win || win.closed || typeof win.closed === "undefined") {
+        // Popup blocked — fall back to top-level navigation
+        try {
+            window.top.location.href = url;
+        } catch (_) {
+            window.location.href = url;
+        }
+    }
+};
+
 export const buildMailto = (subject = "CCTV Quote Enquiry") =>
     `mailto:${BRAND.email}?subject=${encodeURIComponent(subject)}`;
 

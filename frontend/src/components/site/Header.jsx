@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, Shield } from "lucide-react";
-import { BRAND, NAV_LINKS, buildWhatsAppUrl, buildMailto } from "@/lib/brand";
+import { BRAND, NAV_LINKS, buildWhatsAppUrl, buildMailto, openWhatsApp } from "@/lib/brand";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -91,8 +91,9 @@ export default function Header() {
                     <div className="flex items-center gap-3">
                         <a
                             href={buildWhatsAppUrl()}
+                            onClick={(e) => { e.preventDefault(); openWhatsApp(); }}
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                             className="hidden sm:inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.2em] transition-colors"
                             data-testid="header-cta-whatsapp"
                         >
@@ -129,9 +130,9 @@ export default function Header() {
                             ))}
                             <a
                                 href={buildWhatsAppUrl()}
+                                onClick={(e) => { e.preventDefault(); openWhatsApp(); closeMenu(); }}
                                 target="_blank"
-                                rel="noreferrer"
-                                onClick={closeMenu}
+                                rel="noopener noreferrer"
                                 className="mt-3 inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-3 font-mono text-[11px] uppercase tracking-[0.2em]"
                                 data-testid="mobile-cta-whatsapp"
                             >
@@ -149,6 +150,12 @@ export default function Header() {
                             </a>
                         </div>
                     </div>
+                )}
+            </header>
+        </>
+    );
+}
+           </div>
                 )}
             </header>
         </>

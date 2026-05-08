@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
-import { BRAND, buildWhatsAppUrl } from "@/lib/brand";
+import { BRAND, buildWhatsAppUrl, openWhatsApp } from "@/lib/brand";
 
 export default function FloatingWhatsApp() {
     const [open, setOpen] = useState(false);
@@ -46,8 +46,9 @@ export default function FloatingWhatsApp() {
                         </p>
                         <a
                             href={buildWhatsAppUrl()}
+                            onClick={(e) => { e.preventDefault(); openWhatsApp(); }}
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                             className="inline-flex w-full items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 font-mono text-[11px] uppercase tracking-[0.25em] transition-colors"
                             data-testid="whatsapp-popover-cta"
                         >

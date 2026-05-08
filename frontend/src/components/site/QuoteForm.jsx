@@ -9,7 +9,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { SERVICES, BRAND, buildWhatsAppUrl, buildMailto } from "@/lib/brand";
+import { SERVICES, BRAND, buildWhatsAppUrl, buildMailto, openWhatsApp } from "@/lib/brand";
 import { SectionHeader } from "@/components/site/Services";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -104,8 +104,9 @@ export default function QuoteForm() {
                         <div className="space-y-3 mb-10">
                             <a
                                 href={buildWhatsAppUrl()}
+                                onClick={(e) => { e.preventDefault(); openWhatsApp(); }}
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener noreferrer"
                                 className="block border border-zinc-800 hover:border-red-500 px-5 py-4 transition-colors group"
                                 data-testid="quote-side-whatsapp"
                             >
