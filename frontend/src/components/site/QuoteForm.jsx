@@ -82,12 +82,12 @@ export default function QuoteForm() {
             data-testid="quote-section"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <SectionHeader
-                    code="// 04"
-                    eyebrow="Request Quote"
-                    title="Send a brief — get an itemised reply"
-                    sub="Five fields, encrypted in transit, reviewed within one business day. No spam, no resale, no unsolicited calls."
-                />
+                    <SectionHeader
+                        code="// 04"
+                        eyebrow="Request Quote"
+                        title="Tell us what you need protected"
+                        sub="Five fields, encrypted in transit, reviewed within one business day. Whether it's one camera or a full perimeter — no spam, no resale, no unsolicited calls."
+                    />
 
                 <div className="grid lg:grid-cols-12 gap-px bg-zinc-900 border border-zinc-900">
                     {/* Left side info */}

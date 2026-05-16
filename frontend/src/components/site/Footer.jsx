@@ -25,8 +25,9 @@ export default function Footer() {
                             </div>
                         </div>
                         <p className="text-sm text-zinc-400 max-w-md leading-relaxed">
-                            CCTV installation, configuration and remote viewing setup across{" "}
-                            {BRAND.region}. Engineered for clarity, hardened for the street.
+                            CCTV, alarms, access control and electric fencing — installed,
+                            certified and supported across {BRAND.region}. Engineered for
+                            clarity, hardened for the street.
                         </p>
                         <div className="mt-8 flex flex-col sm:flex-row gap-3">
                             <a

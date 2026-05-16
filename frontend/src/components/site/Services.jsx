@@ -1,24 +1,55 @@
+import { useState, useMemo } from "react";
 import {
     Home,
     Building2,
-    Server,
     Smartphone,
+    Bell,
+    Radio,
+    Siren,
+    Fingerprint,
+    KeyRound,
+    Zap,
+    ShieldCheck,
     Wrench,
     ClipboardList,
     Plus,
 } from "lucide-react";
-import { SERVICES } from "@/lib/brand";
+import { SERVICES, CATEGORIES } from "@/lib/brand";
 
-const ICONS = {
-    residential: Home,
-    commercial: Building2,
-    "ip-nvr": Server,
-    remote: Smartphone,
-    amc: Wrench,
-    consult: ClipboardList,
+const ICON_MAP = {
+    home: Home,
+    building: Building2,
+    smartphone: Smartphone,
+    bell: Bell,
+    radio: Radio,
+    siren: Siren,
+    fingerprint: Fingerprint,
+    key: KeyRound,
+    zap: Zap,
+    "shield-check": ShieldCheck,
+    wrench: Wrench,
+    clipboard: ClipboardList,
 };
 
 export default function Services() {
+    const [active, setActive] = useState("all");
+
+    const filtered = useMemo(
+        () =>
+            active === "all"
+                ? SERVICES
+                : SERVICES.filter((s) => s.category === active),
+        [active]
+    );
+
+    const counts = useMemo(() => {
+        const map = { all: SERVICES.length };
+        for (const s of SERVICES) {
+            map[s.category] = (map[s.category] || 0) + 1;
+        }
+        return map;
+    }, []);
+
     return (
         <section
             id="services"
@@ -28,18 +59,68 @@ export default function Services() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeader
                     code="// 02"
-                    eyebrow="Capabilities"
-                    title="What we install & configure"
-                    sub="Six service tracks covering the lifecycle of a CCTV deployment — survey, install, harden, hand over."
+                    eyebrow="Solutions"
+                    title="Five verticals. One integrated system."
+                    sub="Surveillance, alarms, access control, electric fencing and ongoing support — engineered to talk to each other and report into a single app."
                 />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-zinc-900 border border-zinc-900">
-                    {SERVICES.map((svc) => {
-                        const Icon = ICONS[svc.id] || Server;
+                {/* Category Tabs */}
+                <div
+                    className="mb-10 -mx-4 px-4 overflow-x-auto no-scrollbar"
+                    data-testid="services-tabs"
+                >
+                    <div className="flex items-center gap-2 min-w-max border-b border-zinc-900 pb-px">
+                        {CATEGORIES.map((cat) => {
+                            const isActive = active === cat.id;
+                            const count = counts[cat.id] || 0;
+                            return (
+                                <button
+                                    key={cat.id}
+                                    type="button"
+                                    onClick={() => setActive(cat.id)}
+                                    className={`group relative inline-flex items-center gap-2.5 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${
+                                        isActive
+                                            ? "text-white"
+                                            : "text-zinc-500 hover:text-white"
+                                    }`}
+                                    data-testid={`services-tab-${cat.id}`}
+                                    aria-pressed={isActive}
+                                >
+                                    <span
+                                        className={`text-[10px] ${
+                                            isActive ? "text-red-500" : "text-zinc-600"
+                                        }`}
+                                    >
+                                        / {cat.code}
+                                    </span>
+                                    {cat.label}
+                                    <span
+                                        className={`text-[10px] ${
+                                            isActive ? "text-zinc-400" : "text-zinc-700"
+                                        }`}
+                                    >
+                                        ({count})
+                                    </span>
+                                    {isActive && (
+                                        <span className="absolute -bottom-px left-0 right-0 h-px bg-red-500" />
+                                    )}
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {/* Services bento grid */}
+                <div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-zinc-900 border border-zinc-900"
+                    data-testid="services-grid"
+                >
+                    {filtered.map((svc) => {
+                        const Icon = ICON_MAP[svc.icon] || ShieldCheck;
                         return (
                             <article
                                 key={svc.id}
-                                className="group relative bg-[#070707] hover:bg-[#0c0c0c] transition-colors p-8 min-h-[260px] flex flex-col"
+                                className="group relative bg-[#070707] hover:bg-[#0c0c0c] transition-colors p-8 min-h-[280px] flex flex-col"
                                 data-testid={`service-card-${svc.id}`}
                             >
                                 <div className="flex items-start justify-between mb-6">
@@ -82,6 +163,12 @@ export default function Services() {
                         );
                     })}
                 </div>
+
+                {filtered.length === 0 && (
+                    <div className="border border-zinc-900 p-12 text-center font-mono text-xs uppercase tracking-[0.25em] text-zinc-500">
+                        No services in this category yet.
+                    </div>
+                )}
             </div>
         </section>
     );

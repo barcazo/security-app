@@ -1,4 +1,4 @@
-import { ArrowRight, Phone, ShieldCheck, Radio, Wifi, Activity } from "lucide-react";
+import { ArrowRight, Phone, ShieldCheck, Bell, Zap, Fingerprint } from "lucide-react";
 import { BRAND, buildWhatsAppUrl, openWhatsApp } from "@/lib/brand";
 
 const HERO_IMG =
@@ -31,24 +31,24 @@ export default function Hero() {
                     <div className="lg:col-span-8">
                         <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-zinc-400 mb-8">
                             <span className="h-px w-8 bg-red-500" />
-                            <span>UNIT // CCTV-OPS · {BRAND.region}</span>
+                            <span>UNIT // SECURITY-OPS · {BRAND.region}</span>
                         </div>
 
                         <h1 className="font-display font-black uppercase tracking-tight text-white text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.92]">
-                            Surveillance,
+                            Security,
                             <br />
-                            <span className="text-zinc-500">configured</span>
+                            <span className="text-zinc-500">engineered</span>
                             <br />
                             <span className="inline-flex items-baseline gap-3">
-                                <span className="text-red-500">precisely.</span>
+                                <span className="text-red-500">end-to-end.</span>
                             </span>
                         </h1>
 
                         <p className="mt-8 max-w-2xl text-base sm:text-lg text-zinc-400 leading-relaxed">
-                            CCTV installation and configuration engineered for South African
-                            homes, estates and commercial sites. Hardened networks, encrypted
-                            streams, and remote viewing — handed over with documentation and
-                            a 12-month support window.
+                            CCTV, alarms, access control and electric fencing — integrated
+                            into a single hardened system for South African homes, estates and
+                            commercial sites. Designed, installed, certified and supported by
+                            one team.
                         </p>
 
                         <div className="mt-10 flex flex-col sm:flex-row gap-3">
@@ -75,10 +75,10 @@ export default function Hero() {
 
                         <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-zinc-900 border border-zinc-900 max-w-2xl">
                             {[
-                                { icon: ShieldCheck, label: "PSIRA Aligned" },
-                                { icon: Radio, label: "On-Site Survey" },
-                                { icon: Wifi, label: "Remote Setup" },
-                                { icon: Activity, label: "48h SLA" },
+                                { icon: ShieldCheck, label: "CCTV" },
+                                { icon: Bell, label: "Alarms" },
+                                { icon: Fingerprint, label: "Access Control" },
+                                { icon: Zap, label: "Electric Fencing" },
                             ].map((b, i) => (
                                 <div
                                     key={i}
